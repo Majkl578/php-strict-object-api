@@ -1,0 +1,22 @@
+language: php
+
+sudo: false
+
+php:
+    - 7.0
+    - hhvm
+
+matrix:
+    allow_failures:
+        - php: hhvm
+
+
+before_script:
+    - travis_retry composer install
+
+script:
+    - vendor/bin/phpunit
+
+cache:
+    directories:
+        - $HOME/.composer/cache
