@@ -34,7 +34,8 @@ class StrictPropertiesTraitTest extends \PHPUnit_Framework_TestCase
 
     public function testIgnoresValidPropertyUnset()
     {
-        $this->assertSame(1337, $this->object->value);
+        unset($this->object->value);
+        $this->assertFalse(isset($this->object->value));
     }
 
     public function testIgnoresValidPropertyIsset()
